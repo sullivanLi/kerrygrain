@@ -1,0 +1,1 @@
+This is a simple Bootstrap Theme Company Page.
