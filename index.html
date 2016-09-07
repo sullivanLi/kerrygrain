@@ -48,14 +48,15 @@
           <div class="col-sm-12">
             <div class="banner_Over_Box">
               <h2 class="white-font">About Company</h2>
-              <h4 class="white-font">Kerry Grain Holdings Inc, located in Vancouver, B.C, Canada, was established
-              in 2015 as an export company specialized in grain commodities. We are an
-              entrepreneurial trading company that connects agricultural producers of
-              especially Canada and U.S.A with our clients over the world. We build and
-              maintain solid relationships and believe that our clients and our team
-              are critical to our success. In the changeable situation of grain industry,
-              we will continue to challenge to entry new markets to increase client and
-              stakeholder value.</h4>
+              <h4 class="white-font">
+                <p>Kerry Grain Holdings Inc, located in Vancouver, B.C, Canada, was established
+                in 2015 as an export company specialized in grain commodities.</p>
+                <p>We are an entrepreneurial trading company that connects agricultural producers of
+                especially Canada and U.S.A with our clients over the world. We build and maintain
+                solid relationships and believe that our clients and our teamare critical to our success.</p>
+                <p>In the changeable situation of grain industry, we will continue to challenge to entry
+                new markets to increase client and stakeholder value.</p>
+              </h4>
             </div>
           </div>
         </div>
@@ -69,15 +70,43 @@
           <div class="col-sm-8">
             <h2>Our Values</h2>
             <br>
-            <h4>Our business is that of meeting our client’s needs by exporting grain
+            <h4>
+              <p>Our business is that of meeting our client’s needs by exporting grain
               commodities like wheat, soybean, lentils, peas and so on efficiently, providing
-              the best price advantage. We purchase our products from local producers
-              and farmers in Canada. To serve high-quality service to our clients, we
+              the best price advantage.</p>
+              <p>We purchase our products from local producers and farmers in Canada.</p>
+              <p>To serve high-quality service to our clients, we
               corporate with dependable suppliers, secure financial institutions, and
-              transportation companies.</h4>
+              transportation companies.</p>
+            </h4>
           </div>
         </div>
         <div class="gap-70"></div>
+      </div>
+      <!-- Full Page Image Background Carousel -->
+      <div class="container-fluid bg-grey">
+        <div class="row">
+          <div class="col-md-12 center-block">
+            <div id="myCarousel" class="carousel slide" data-ride="carousel">
+
+              <div class="carousel-inner" role="listbox">
+                <div class="item active">
+                  <div class="col-xs-4"><img src="img/wheat_gallery.jpg" class="img-responsive"></div>
+                </div>
+
+                <div class="item">
+                  <div class="col-xs-4"><img src="img/harvest_gallery.jpg" class="img-responsive"></div>
+                </div>
+
+                <div class="item">
+                  <div class="col-xs-4"><img src="img/grain_gallery.jpg" class="img-responsive"></div>
+                </div>
+              </div>
+              <a class="left carousel-control" href="#myCarousel" data-slide="prev"><i class="glyphicon glyphicon-chevron-left"></i></a>
+              <a class="right carousel-control" href="#myCarousel" data-slide="next"><i class="glyphicon glyphicon-chevron-right"></i></a>
+            </div>
+          </div>
+        </div>
       </div>
       <!-- Container (Services Section) -->
       <div id="services" class="container-fluid text-center bg-grey">
@@ -293,7 +322,26 @@
                                         });
                                       })
         </script>
-      </div>
+    <!-- Script to Activate the Carousel -->
+    <script>
+      $('.carousel').carousel({
+        interval: 5000, //changes the speed
+        pause: false
+      })
+      $('.carousel .item').each(function(){
+        var next = $(this).next();
+        if (!next.length) {
+          next = $(this).siblings(':first');
+        }
+        next.children(':first-child').clone().appendTo($(this));
   
-
+        if (next.next().length>0) {
+          next.next().children(':first-child').clone().appendTo($(this));
+        }
+        else {
+          $(this).siblings(':first').children(':first-child').clone().appendTo($(this));
+        }
+      });
+    </script>
+  </div>
 </body></html>
